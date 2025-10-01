@@ -9,6 +9,13 @@ const eventName = "greet";
 emitter.on(eventName, function(){
     console.log("Hello World!");
 });
+emitter.on(eventName, function(){
+    console.log("Привет мир!");
+});
+emitter.on(eventName, function(){
+    console.log("Hallo Welt!");
+});
+
 console.log("start emit")
 
 // генерируем событие greet
