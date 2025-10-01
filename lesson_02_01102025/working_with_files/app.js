@@ -28,7 +28,26 @@ fs.stat(file, (error, stats) => {
 });
 
 
-fs.unlink(file, (error) => {
-  if (error) return console.log(error); // если возникла ошибка 
-  console.log("File deleted");
+// fs.unlink(file, (error) => {
+//   if (error) return console.log(error); // если возникла ошибка 
+//   console.log("File deleted");
+// });
+
+
+fs.mkdir("test", (error) => {  
+        if (error) return console.log(error);
+        console.log("Folder created");
+});
+
+
+fs.readdir("test", (error, files) => {  
+        if (error) return console.log(error);
+        files.forEach((file) => console.log(file));
+        console.log("Folder read");
+});
+
+
+fs.rmdir("test", (error) => {  
+        if (error) return console.log(error);
+        console.log("Folder deleted");
 });
