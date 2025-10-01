@@ -1,0 +1,11 @@
+{
+  "name": "working_with_files",
+  "version": "1.0.0",
+   "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
