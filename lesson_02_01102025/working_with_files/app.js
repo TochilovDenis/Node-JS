@@ -17,3 +17,12 @@ fs.writeFile("hello2.txt", data, function(error){
     }
     console.log("Файл успешно записан");
 });
+
+ 
+// асинхронное добавление
+fs.stat(file, (error, stats) => {  
+    if (error)  return console.error(error);
+    console.log(stats.isFile());        // true  
+    console.log(stats.isDirectory());   // false  
+    console.log(stats);
+});
