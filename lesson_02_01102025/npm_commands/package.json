@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "https://metanit.com/web/nodejs/2.7.php",
   "license": "ISC",
-  "author": "",
+  "author": "dex",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-     "start" : "node index.js",
-    "dev" : "node index.js Dex 35 Череповец",
-    "test": "echo \"Здарова! Это тест\" && exit 1"
+    "start" : "node index.js",
+    "dev" : "node index.js 127.0.0.1 3000",
+    "dev1" : "node index.js 0.0.0.0 5000",
+    "test": "node index.js 127.0.0.1 3000 && exit 1"
   }
 }

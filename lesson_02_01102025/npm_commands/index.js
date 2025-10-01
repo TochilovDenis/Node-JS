@@ -1,7 +1,12 @@
-const name = process.argv[2];
-const age = process.argv[3];
-const city = process.argv[4];
+const host = process.argv[2];
+const post = process.argv[3];
+console.log(host + ":" + post);
 
-console.log("name:", name);
-console.log("age:", age);
-console.log("city:", city);
+const http = require("http");
+http.createServer(function(request,response){
+     
+    response.end("Hello NodeJS!");
+     
+}).listen(post,host, function(){
+    console.log("Сервер начал прослушивание запросов на порту 3000");
+});
