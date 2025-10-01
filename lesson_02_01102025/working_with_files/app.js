@@ -26,3 +26,9 @@ fs.stat(file, (error, stats) => {
     console.log(stats.isDirectory());   // false  
     console.log(stats);
 });
+
+
+fs.unlink(file, (error) => {
+  if (error) return console.log(error); // если возникла ошибка 
+  console.log("File deleted");
+});
