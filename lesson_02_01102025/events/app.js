@@ -5,28 +5,22 @@ const emitter = new EventEmitter();
 // имя события, которое будет обрабатываться
 const eventName = "greet";
 
-emitter.on(eventName, function(data){
-    console.log(data);
+emitter.on(eventName, function(username){
+    console.log("Прив", username);
 });
 
 console.log("start emit")
 
-class User extends EventEmitter {
-    constructor(username){
-        super();    // вызываем конструктор EventEmitter
+class User{
+    constructor(username, emitter){
         this.name = username;
+        this.emitter = emitter;
     }
     sayHi() {
         console.log("Привет. Меня зовут", this.name);
-    this.emit(eventName, this.name);    // генерируем событие, передаем обработчику имя
+    this.emitter.emit(eventName, this.name);    // генерируем событие, передаем обработчику имя
     }
 }
 
-const tom = new User("Dex");
-// добавляем к объекту tom обработку события "greet"
-// обработчик ожидает получить через параметр имя пользователя
-tom.on(eventName, function(username){
-    console.log("Привет,", username);
-});
-// при выполнении метода генерируется событие "greet"
-tom.sayHi();
+const dex = new User("Dex", emitter);
+dex.sayHi();
