@@ -1,0 +1,17 @@
+{
+  "name": "task_01",
+  "version": "1.0.0",
+  "description": "https://metanit.com/web/nodejs/2.7.php",
+  "license": "ISC",
+  "author": "dex",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start" : "node app.js",
+    "dev" : "node app.js 127.0.0.1 3000",
+    "test": "node app.js && exit 1"      
+  },
+  "dependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
