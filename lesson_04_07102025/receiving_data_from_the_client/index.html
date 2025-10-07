@@ -7,11 +7,19 @@
 <body>
 <script>
 sendUser();
-async function sendUser() {
-    const response = await fetch("/user", { method: "POST", body: "Dex AcademyTOP"});
+async function sendUser(user) {
+    const response = await fetch("/user", { 
+            method: "POST", 
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name: "Dex",
+                age: 35
+        })
+    });
     const responseText = await response.text();
     console.log(responseText);
 }
 </script>
 </body>
 </html>
+

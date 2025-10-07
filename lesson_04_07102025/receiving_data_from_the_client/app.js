@@ -3,7 +3,7 @@ const fs = require("fs");
  
 http.createServer(async (request, response) => {
      response.setHeader("Content-Type", "text/html; charset=utf-8;");
-     if (request.url === "/user") {
+    if (request.url === "/user") {
          
         const buffers = []; // буфер для получаемых данных
  
@@ -11,8 +11,8 @@ http.createServer(async (request, response) => {
             buffers.push(chunk);        // добавляем в буфер все полученные данные
         }
  
-        const data = Buffer.concat(buffers).toString();
-        console.log(data);
+        const user = JSON.parse(Buffer.concat(buffers).toString());
+        console.log(user.name,"-", user.age);
         response.end("Данные успешно получены");
     }
     else{
