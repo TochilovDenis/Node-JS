@@ -3,20 +3,20 @@ const fs = require("fs");
    
 http.createServer(function(request, response){
        
-    console.log(`Запрошенный адрес: ${request.url}`);
+ console.log(`Запрошенный адрес: ${request.url}`);
     // получаем путь после слеша
     const filePath = request.url.substring(1);
-    // смотрим, есть ли такой файл
-    fs.access(filePath, fs.constants.R_OK, err => {
-        // если произошла ошибка - отправляем статусный код 404
-        if(err){
+    fs.readFile(filePath, function(error, data){
+              
+        if(error){
+                  
             response.statusCode = 404;
             response.end("Resourse not found!");
-        }
+        }   
         else{
-            fs.createReadStream(filePath).pipe(response);
+            response.end(data);
         }
-      });
+    });
 }).listen(3000, function(){
     console.log("Сервер запущен по адресу http://localhost:3000");
 });
