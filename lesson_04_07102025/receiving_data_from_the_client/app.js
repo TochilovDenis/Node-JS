@@ -1,18 +1,19 @@
 const http = require("http");
 const fs = require("fs");
  
-http.createServer((request, response) => {
-      
+http.createServer(async (request, response) => {
+     response.setHeader("Content-Type", "text/html; charset=utf-8;");
      if (request.url === "/user") {
          
-        let data = "";
-        request.on("data", chunk => {
-            data += chunk;
-        });
-        request.on("end", () => {
-            console.log(data);
-            response.end("Данные успешно получены");
-        });
+        const buffers = []; // буфер для получаемых данных
+ 
+        for await (const chunk of request) {
+            buffers.push(chunk);        // добавляем в буфер все полученные данные
+        }
+ 
+        const data = Buffer.concat(buffers).toString();
+        console.log(data);
+        response.end("Данные успешно получены");
     }
     else{
         fs.readFile("index.html", (error, data) => response.end(data));
