@@ -18,9 +18,8 @@ app.use(function(request, response, next){
     next();
 });
 
-app.get("/", function(_, response){ 
-    console.log("Route /");
-    response.send("Hello");
+app.use(function (_, response) {
+  response.sendFile(__dirname + "/index.html");
 });
 
 // начинаем прослушивать подключения на 3000 порту
