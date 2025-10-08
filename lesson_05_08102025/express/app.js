@@ -18,8 +18,12 @@ app.use(function(request, response, next){
     next();
 });
 
-app.use(function (_, response) {
-  response.sendFile(__dirname + "/index.html");
+// app.use(function (_, response) {
+//   response.sendFile(__dirname + "/index.html");
+// });
+
+app.use("/home/foo/bar",function (_, response) {
+  response.sendStatus(404)
 });
 
 // начинаем прослушивать подключения на 3000 порту
