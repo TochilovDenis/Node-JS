@@ -7,10 +7,10 @@ app.use(function(_, _, next){
     console.log("Middleware 1");
     next();
 });
-app.use(function(_, _, next){
+app.use(function(_, response){
      
     console.log("Middleware 2");
-    next();
+    response.send("Middleware 2");
 });
  
 app.get("/", function(_, response){
