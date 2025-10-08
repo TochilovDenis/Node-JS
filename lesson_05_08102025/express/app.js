@@ -7,10 +7,11 @@ app.use(function(_, _, next){
     console.log("Middleware 1");
     next();
 });
-app.use(function(_, response){
+
+app.use("/about", function(_, response){
      
-    console.log("Middleware 2");
-    response.send("Middleware 2");
+    console.log("About Middleware");
+    response.send("About Middleware");
 });
  
 app.get("/", function(_, response){
