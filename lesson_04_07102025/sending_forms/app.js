@@ -19,8 +19,8 @@ http
             // разбиваем запрос на параметры на имя и значение
             const [paramName, paramValue] = body.split("=");
 
-            if (paramName === "file_name") fileName = paramValue;
-
+            if (paramName == "file_name") fileName = paramValue;
+            console.log(paramValue, paramValue)
             //fs.createReadStream(fileName + '.html').pipe(response);
 
             fs.readFile(fileName + ".html", function (error, data) {
