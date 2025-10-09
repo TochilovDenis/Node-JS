@@ -9,10 +9,10 @@ app.use("/index",function (_, response) {
 });
 
 app.use("/home/bar",function (_, response) {
-  response.redirect("about")
+  response.redirect("/about")
 });
 
-app.use("/home/about", function (_, response) {
+app.use("/about", function (_, response) {
   response.send("<h1>About</h1>");
 });
 
