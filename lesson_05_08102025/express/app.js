@@ -8,11 +8,11 @@ app.use("/index",function (_, response) {
   response.redirect("https://metanit.com")
 });
 
-app.use("/home",function (_, response) {
+app.use("/home/bar",function (_, response) {
   response.redirect("about")
 });
 
-app.use("/about", function (_, response) {
+app.use("/home/about", function (_, response) {
   response.send("<h1>About</h1>");
 });
 
