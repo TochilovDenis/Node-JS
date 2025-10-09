@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 
 //1 параметры маршрута получить из запроса
-app.get("/name/:nam/pet/:pet.:age", function (request, response) {
+app.get("/name/:name/pet/:pet.:age", function (request, response) {
     const pageName = request.params["name"];
     const pagePet = request.params["pet"];
     const pageAge = request.params["age"];
