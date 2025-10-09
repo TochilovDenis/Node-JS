@@ -4,16 +4,27 @@ const fs = require("fs");
 // создаем объект приложения
 const app = express();
 
-app.use("/index",function (_, response) {
-  response.redirect("https://metanit.com")
+app.get("/aaa/bbb/ccc/eee/ggg/ttt/rrr/yyy",function (_, response) {
+  response.redirect("..")
 });
 
-app.use("/home/bar",function (_, response) {
-  response.redirect("/about")
+
+app.get("/aaa/bbb", function (_, response) {
+ response.redirect("..")
 });
 
-app.use("/about", function (_, response) {
-  response.send("<h1>About</h1>");
+
+app.get("/ggg/ttt/rrr/yyy", function (_, response) {
+ response.redirect("..")
+});
+ 
+ 
+app.get("/ggg/ttt/rrr/yyy/aaa/bbb/ccc", function (_, response) {
+ response.redirect("..")
+});
+ 
+app.get("/", function(_, response){
+     response.send(`Запрошенный данные: ${name},${age},${pet},${city},${obl}`);
 });
 
 // начинаем прослушивать подключения на 3000 порту
