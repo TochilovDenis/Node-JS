@@ -9,10 +9,10 @@ app.post("/user", function (request, response) {
     console.log(user);
     if(!user) return response.sendStatus(400);
     const responseText = `Your name: ${user.name}  Your age: ${user.age}`;
-    response.send(responseText); // отправляем пришедший ответ обратно
+    response.json({message: responseText}); // отправляем данные в формате json
 });
    
-app.get("/", function(_, response){
+app.get("/", function(request, response){
     response.sendFile(__dirname + "/index.html");
 });
    
