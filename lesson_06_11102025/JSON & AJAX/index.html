@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>METANIT.COM</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Введите данные</h1>
+    <form id="myForm" action="/user" method="post">
+        <p>
+          <label>Имя</label><br>
+          <input type="text" name="userName" />
+        </p>
+        <p>
+          <label>Возраст</label><br>
+          <input type="number" name="userAge" />
+        </p>
+        <input type="submit" value="Отправить" />
+    </form>
+<script>
+// данные для отправки
+const myForm = document.getElementById("myForm");
+myForm.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    // данные для отправки
+    const username = myForm.userName.value;
+    const userage = myForm.userAge.value;
+ 
+    const response = await fetch("/user", { 
+              method: "POST", 
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({name: username, age: userage})
+    });
+    // из объекта ответа извлекаем текст ответа
+    const responseText = await response.text();
+    console.log(responseText);
+});
+</script>
+</body>
+</html>
