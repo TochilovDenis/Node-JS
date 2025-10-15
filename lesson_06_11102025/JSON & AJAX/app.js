@@ -1,18 +1,18 @@
 const express = require("express");
    
 const app = express();
-// создаем парсер для данных в формате json
-const jsonParser = express.json();
+// устанавливаем автоматически парсинг тела запроса в json
+app.use(express.json()); 
    
-app.post("/user", jsonParser, function (request, response) {
+app.post("/user", function (request, response) {
     const user = request.body;
     console.log(user);
     if(!user) return response.sendStatus(400);
     const responseText = `Your name: ${user.name}  Your age: ${user.age}`;
-    response.send(responseText); // отправляем ответ
+    response.send(responseText); // отправляем пришедший ответ обратно
 });
    
-app.get("/", function(request, response){
+app.get("/", function(_, response){
     response.sendFile(__dirname + "/index.html");
 });
    
