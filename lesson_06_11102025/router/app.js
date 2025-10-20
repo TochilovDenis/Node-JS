@@ -54,7 +54,7 @@ petRouter.use("/", function(request, response){
 // Подключаем роутеры
 app.use("/user", userRouter);
 app.use("/friend", friendRouter);
-app.use("/pet", petRouter); // Исправлено: было userRouter
+app.use("/pet", petRouter);
 
 app.use("/", function (request, response) {
   response.send("Главная страница");
